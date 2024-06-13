@@ -1,6 +1,6 @@
 .selectInput{
 	font-family: 'Inter';
-	color: black;
+	color: black !important;
 	&__control {
 		cursor: pointer !important;
 		border-radius: 10px !important;
@@ -29,6 +29,7 @@
 	}
 	&__indicator{
 		padding: 0 !important;
+		color: #262626 !important;
 		&-separator{
 			display: none;
 		}
@@ -42,6 +43,9 @@
 	&__indicators {
 		color: #262626 !important;
 		background-color: white !important;
+	}
+	&__dropdown-indicator{
+		color: #262626 !important;
 	}
 	&__menu{
 		margin: 0 !important;
@@ -62,6 +66,8 @@
 			display: flex;
 			align-items: center;
 			gap: 8px;
+			background-color: white !important;
+			color: black !important;
 			&_dot{
 				height: 8px;
 				width: 8px;
