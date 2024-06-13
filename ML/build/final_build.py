@@ -1,7 +1,8 @@
 import pandas as pd
-import numpy as np
 from catboost import CatBoostRegressor
 import joblib
+import json
+import sys
 
 
 class GBR_Real_Estate_Model():
@@ -44,3 +45,10 @@ class GBR_Real_Estate_Model():
         processed = self.__PreprocessingPipeline(input_data)
         prediction = self.model.predict(processed)
         return prediction
+
+
+if __name__ == "__main__":
+    input_list = json.loads(sys.argv[1])
+    model = GBR_Real_Estate_Model()
+    prediction = model.predict(input_list)
+    print(json.dumps({"prediction": prediction.tolist()}))
