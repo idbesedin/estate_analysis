@@ -43,12 +43,10 @@ const SelectInput = memo((props: Props) => {
 		placeholder = '',
 		isRequired = true,
 		defaultValue,
-		width,
 		type = 'status',
 		style = 'default',
 		height,
 		optionsColor,
-		isCreatable,
 		isMulti,
 	} = props
 	const { control, formState, getFieldState } = useFormContext()
