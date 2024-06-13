@@ -1,7 +1,7 @@
-import { Routes, useLocation, Route, Navigate } from 'react-router-dom'
+import { Routes, useLocation, Route } from 'react-router-dom'
 import { AnimatePresence } from "framer-motion"
 import './App.scss'
-import { FirstStep, PageOutlet, SecondStep, ThirdStep } from '../Components'
+import { PageOutlet} from '../Components'
 
 
 function App() {
