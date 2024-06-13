@@ -44,6 +44,7 @@
 	border: 1px solid #CFD3D5;
 	padding: 0px 15px;
 	color: var(--tg-theme-text-color);
+	background-color: var(--tg-theme-secondary-bg-color);
 	&:-internal-autofill-selected {
 		color: white !important;
 		background-color: white !important;
