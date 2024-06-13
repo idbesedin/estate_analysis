@@ -43,7 +43,7 @@
 	border-radius: 10px;
 	border: 1px solid #CFD3D5;
 	padding: 0px 15px;
-	color: #2d3436;
+	color: var(--tg-theme-text-color);
 	&:-internal-autofill-selected {
 		color: white !important;
 		background-color: white !important;

@@ -10,6 +10,7 @@
 		border: 1px solid #CFD3D5 !important;
 		display: flex !important;
 		align-items: center !important;
+		background-color: white;
 	}
 	&__single-value{
 		margin: 0 !important;
@@ -54,6 +55,7 @@
 		color: #959796 !important;
 		cursor: pointer !important;
 		text-align: start !important;
+		background-color: white;background-color: white;
 		&_custom{
 			display: flex;
 			align-items: center;
@@ -71,6 +73,7 @@
 			display: inline-flex;
 			margin: 0;
 			padding: 0;
+			background-color: white;
 		}
 		&:hover{
 			color: #EB7F1F !important;

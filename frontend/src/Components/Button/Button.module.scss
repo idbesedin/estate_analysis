@@ -11,12 +11,12 @@
 	font-size: 15px;
 }
 .button{
-	background-color: white;
+	background-color: var(--tg-theme-secondary-bg-color);
 	border: 1px solid #CFD3D5;
 	border-radius: 10px;
 	padding: 6px 17px;
 	text-decoration: none;
-	color: black;
+	color: var(--tg-theme-text-color);
 	cursor: pointer;
 	transition: all 0.3s ease;
 	font-size: 15px;
