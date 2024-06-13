@@ -1,17 +1,11 @@
-import { useNavigate } from "react-router-dom"
 import { Button, FormWrapper, Input } from ".."
-import { useEffect } from "react";
 
 
-function SecondStep() {
-	const navigate = useNavigate()
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	},[])
+function SecondStep({goBack} : {goBack: () => void}) {
   return (
 	<FormWrapper>
 			<>
-				<Button onClick={() => navigate(-1)} width="100px" type="button">Назад</Button>
+				<Button onClick={goBack} width="100px" type="button">Назад</Button>
 				<Input
 					label='Количество комнат' 
 					placeholder='Введите количество комнат'

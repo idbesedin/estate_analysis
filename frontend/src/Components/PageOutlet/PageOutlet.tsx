@@ -1,8 +1,8 @@
-import { Outlet } from "react-router"
 import Header from "../Header/Header"
 import { FormProvider, useForm } from "react-hook-form"	
-import { useLocation, useNavigate } from "react-router-dom"
 import { useState } from "react"
+import { FirstStep, SecondStep, ThirdStep } from ".."
+import useTelegram from "../../hooks/useTelegram"
 
 const PageOutlet = () => {
 	interface FormValues {
@@ -27,28 +27,28 @@ const PageOutlet = () => {
 		floors_number: 0,
 		renovation: 'cosmetic',
 	})
-
+	const [counter, setCounter] = useState(0)
+	const arr = [
+		<FirstStep/>,
+		<SecondStep goBack={() => setCounter(counter - 1)}/>,
+		<ThirdStep goBack={() => setCounter(counter - 1)}/>,
+	]
 	const methods = useForm<FormValues>()
 	const {
 		handleSubmit,
 	} = methods
-	const location = useLocation()
-	const navigate = useNavigate()
+	const {tg} = useTelegram()
 	
 	const onSubmit = (body: FormValues) => {
-		console.log('before', data)
-		setData(obj => {
-			return {
-				...obj, 
-				...body,
-		}})
-		console.log('after', data)
-		if (location.pathname === '/1'){
-			navigate('/2')
-		} else if (location.pathname === '/2') {
-			navigate('/3')
-		} else if (location.pathname === '/3') {
-			// console.log(data)
+		let newBody = {
+			...data,
+			...body
+		}
+		setData(newBody)
+		if (counter < arr.length - 1) {
+			setCounter(counter + 1)
+		} else{
+			tg.sendData(JSON.stringify(newBody))
 		}
 	}
 	return (
@@ -56,7 +56,7 @@ const PageOutlet = () => {
 		<Header />
 			<FormProvider {...methods}>
 				<form action="" onSubmit={handleSubmit(onSubmit)}>
-					<Outlet />
+					{arr[counter]}
 				</form>
 			</FormProvider>
 	  </div>
