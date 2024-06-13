@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import { Button, FormWrapper, Input, SelectInput } from ".."
+import { useEffect } from "react"
 
 function ThirdStep() {
 	const navigate = useNavigate()
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	},[])
 	return (
 		<FormWrapper>
 				<>

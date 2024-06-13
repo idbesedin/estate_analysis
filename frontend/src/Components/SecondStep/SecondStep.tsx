@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { Button, FormWrapper, Input } from ".."
+import { useEffect } from "react";
 
 
 function SecondStep() {
 	const navigate = useNavigate()
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	},[])
   return (
 	<FormWrapper>
 			<>

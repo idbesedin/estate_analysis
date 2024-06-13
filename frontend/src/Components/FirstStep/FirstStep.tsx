@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
 import { Button, FormWrapper, Input, SelectInput } from '..'
 
 
 function FirstStep() {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	},[])
   return (
 		<FormWrapper>
 			<>

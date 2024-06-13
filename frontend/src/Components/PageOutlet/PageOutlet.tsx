@@ -36,17 +36,19 @@ const PageOutlet = () => {
 	const navigate = useNavigate()
 	
 	const onSubmit = (body: FormValues) => {
-		console.log(body)
+		console.log('before', data)
 		setData(obj => {
 			return {
-				...obj, ...body
+				...obj, 
+				...body,
 		}})
+		console.log('after', data)
 		if (location.pathname === '/1'){
 			navigate('/2')
 		} else if (location.pathname === '/2') {
 			navigate('/3')
 		} else if (location.pathname === '/3') {
-			console.log(data)
+			// console.log(data)
 		}
 	}
 	return (
