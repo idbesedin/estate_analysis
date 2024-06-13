@@ -33,6 +33,10 @@
 		&-separator{
 			display: none;
 		}
+		svg{
+			background-color: white !important;
+			color: #262626 !important;
+		}
 	}
 	&__placeholder{
 		margin: 0 !important;
@@ -74,6 +78,8 @@
 				border-radius: 50%;
 				p{
 					text-transform: capitalize;
+					background-color: white !important;
+					color: black !important;
 				}
 			  }
 		}
