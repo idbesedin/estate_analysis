@@ -48,6 +48,7 @@ const PageOutlet = () => {
 		if (counter < arr.length - 1) {
 			setCounter(counter + 1)
 		} else{
+			console.log('here')
 			tg.sendData(JSON.stringify(newBody))
 		}
 	}

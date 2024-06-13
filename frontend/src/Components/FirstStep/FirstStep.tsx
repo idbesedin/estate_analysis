@@ -21,12 +21,14 @@ function FirstStep() {
 					placeholder='Введите в минутах'
 					name='minutes_to_metro'
 					isRequired={true}
+					pattern={/^\d+$/}
 					/>
 				<Input
 					label='Название станции метро' 
 					placeholder='Введите название ближайшей'
 					name='metro'
 					isRequired={true}
+					pattern={/^[а-яА-ЯёЁ\s-]+$/}
 				/>
 				<Button>Далее</Button>
 			</>

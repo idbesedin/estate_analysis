@@ -11,12 +11,14 @@ function ThirdStep({goBack} : {goBack: () => void}) {
 						placeholder='Введите число'
 						name='floor'
 						isRequired={true}
+						pattern={/^\d+$/}
 						/>
 					<Input
 						label='Количество этажей в доме' 
 						placeholder='Введите число'
 						name='floors_number'
 						isRequired={true}
+						pattern={/^\d+$/}
 					/>
 					<SelectInput
 						label='Тип ремонта'
