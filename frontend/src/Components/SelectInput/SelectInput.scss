@@ -10,7 +10,7 @@
 		border: 1px solid #CFD3D5 !important;
 		display: flex !important;
 		align-items: center !important;
-		background-color: white;
+		background-color: white !important;
 	}
 	&__single-value{
 		margin: 0 !important;
@@ -37,9 +37,11 @@
 		margin: 0 !important;
 		color: #262626;
 		text-align: start;
+		background-color: white !important;
 	}
-	&__indicator {
+	&__indicators {
 		color: #262626 !important;
+		background-color: white !important;
 	}
 	&__menu{
 		margin: 0 !important;
@@ -55,7 +57,7 @@
 		color: #959796 !important;
 		cursor: pointer !important;
 		text-align: start !important;
-		background-color: white;background-color: white;
+		background-color: white !important;
 		&_custom{
 			display: flex;
 			align-items: center;
