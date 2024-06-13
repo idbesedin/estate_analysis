@@ -1,21 +1,22 @@
-import { Routes, useLocation, Route } from 'react-router-dom'
+import { Routes, useLocation, Route, Navigate } from 'react-router-dom'
 import { AnimatePresence } from "framer-motion"
-import PageOutlet from '../Components/PageOutlet/PageOutlet'
+import './App.scss'
+import { FirstStep, PageOutlet, SecondStep, ThirdStep } from '../Components'
+
 
 function App() {
   const location = useLocation()
   return (
         <AnimatePresence initial={true} mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<PageOutlet />}>
-                <Route index element={<h1>Начало</h1>}/>
-                <Route path='1' element={<h1>Шаг 1</h1>}/>
-                <Route path='2' element={<h1>Шаг 2</h1>}/>
-                <Route path='3' element={<h1>Шаг 3</h1>}/>
-            </Route>
-          </Routes>
-        </AnimatePresence>
-      
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<PageOutlet />}>
+                  <Route index element={<Navigate to='/1'/>}/>
+                  <Route path='1' element={<FirstStep/>}/>
+                  <Route path='2' element={<SecondStep/>}/>
+                  <Route path='3' element={<ThirdStep/>}/>
+              </Route>
+            </Routes>
+          </AnimatePresence>
   )
 }
 
