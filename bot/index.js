@@ -9,7 +9,7 @@ const { spawn } = require('child_process');
 
 function callPython(inputData) {
     return new Promise((resolve, reject) => {
-        const pyProg = spawn('python3', ['../ML/build/final_build.py', JSON.stringify(inputData)]);
+        const pyProg = spawn('python', ['../ML/build/final_build.py', JSON.stringify(inputData)]);
 
         pyProg.stdout.on('data', (data) => {
             resolve(data.toString());
