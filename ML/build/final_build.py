@@ -7,7 +7,7 @@ import sys
 
 
 class GBR_Real_Estate_Model():
-    def __init__(self):
+    def __init__(self, path):
         '''
 
         '''
@@ -15,10 +15,10 @@ class GBR_Real_Estate_Model():
                         4: 'Area', 5: 'Kitchen area', 6: 'Floor', 7: 'Number of floors', 8: 'Renovation'}
 
         self.model = CatBoostRegressor()
-        self.model = self.model.load_model(fname='C:\Work_life\HSE_and_study\Downloads\\tumbochkina\CBR_regressor.onnx', format='onnx')
-        self.TE = joblib.load('C:\Work_life\HSE_and_study\Downloads\\tumbochkina\Custom_Target_Encoder.joblib')
-        self.scaler = joblib.load('C:\Work_life\HSE_and_study\Downloads\\tumbochkina\Custom_Scaler.joblib')
-        self.LE = joblib.load('C:\Work_life\HSE_and_study\Downloads\\tumbochkina\\Custom_Label_Encoder.joblib')
+        self.model = self.model.load_model(fname=path + '\\' + 'CBR_regressor.onnx', format='onnx')
+        self.TE = joblib.load(path + '\\' +'Custom_Target_Encoder.joblib')
+        self.scaler = joblib.load(path + '\\' +'Custom_Scaler.joblib')
+        self.LE = joblib.load(path + '\\' +'Custom_Label_Encoder.joblib')
 
     def __PreprocessingPipeline(self, input_data) -> pd.DataFrame:
         '''
@@ -49,8 +49,9 @@ class GBR_Real_Estate_Model():
 
 
 if __name__ == "__main__":
-    #input_list = json.loads(sys.argv[1])
-    input_list = json.loads('["New Building","Медведково",15,3,150,40,10,22,"European-style renovation"]')
-    model = GBR_Real_Estate_Model()
+    input_list = json.loads(sys.argv[1])
+    # input_list = json.loads('["New Building","Медведково",15,3,150,40,10,22,"European-style renovation"]')
+    path = 'C:\Work_life\HSE_and_study\Downloads\\tumbochkina\\estate_analysis\\ML\\build'
+    model = GBR_Real_Estate_Model(path)
     prediction = model.predict(input_list)
     print(json.dumps({"prediction": prediction.tolist()}))
