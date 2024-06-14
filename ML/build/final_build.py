@@ -1,6 +1,7 @@
 import pandas as pd
 from catboost import CatBoostRegressor
 import joblib
+import numpy as np
 import json
 import sys
 
@@ -14,10 +15,10 @@ class GBR_Real_Estate_Model():
                         4: 'Area', 5: 'Kitchen area', 6: 'Floor', 7: 'Number of floors', 8: 'Renovation'}
 
         self.model = CatBoostRegressor()
-        self.model = self.model.load_model(fname='CBR_regressor.onnx', format='onnx')
-        self.TE = joblib.load('Custom_Target_Encoder.joblib')
-        self.scaler = joblib.load('Custom_Scaler.joblib')
-        self.LE = joblib.load('Custom_Label_Encoder.joblib')
+        self.model = self.model.load_model(fname='C:\Work_life\HSE_and_study\Downloads\\tumbochkina\estate_analysis\ML\\build\CBR_regressor.onnx', format='onnx')
+        self.TE = joblib.load('C:\Work_life\HSE_and_study\Downloads\\tumbochkina\estate_analysis\ML\\build\Custom_Target_Encoder.joblib')
+        self.scaler = joblib.load('C:\Work_life\HSE_and_study\Downloads\\tumbochkina\estate_analysis\ML\\build\Custom_Scaler.joblib')
+        self.LE = joblib.load('C:\Work_life\HSE_and_study\Downloads\\tumbochkina\estate_analysis\ML\\build\Custom_Label_Encoder.joblib')
 
     def __PreprocessingPipeline(self, input_data) -> pd.DataFrame:
         '''
@@ -43,12 +44,13 @@ class GBR_Real_Estate_Model():
         :return:
         '''
         processed = self.__PreprocessingPipeline(input_data)
-        prediction = self.model.predict(processed)
+        prediction = np.round(self.model.predict(processed), 0)
         return prediction
 
 
 if __name__ == "__main__":
     input_list = json.loads(sys.argv[1])
+    #input_list = json.loads('["New Building","Арбатская",15,3,150,40,10,22,"European-style renovation"]')
     model = GBR_Real_Estate_Model()
     prediction = model.predict(input_list)
     print(json.dumps({"prediction": prediction.tolist()}))
